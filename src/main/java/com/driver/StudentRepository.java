@@ -79,9 +79,13 @@ public class StudentRepository {
 
      public void deleteAllTeachersAndStudents(){
 
-        studentTeacherMap.clear();
-        studentMap.clear();
-        teacherMap.clear();
+        for(List<String> studentsList : studentTeacherMap.values()){
+            for(String student : studentsList)
+                studentMap.remove(student);
+        }
+          studentTeacherMap.clear();
+//        studentMap.clear();
+          teacherMap.clear();
      }
 
 }
